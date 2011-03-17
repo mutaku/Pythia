@@ -1,0 +1,19 @@
+       PYTHIA
+       Matthew Martz 
+       http://mutaku.com/
+
+ Invoked as:
+   python pythia.py    <---This is the normal mode
+   python pythia.py [debug, menu]
+
+   normal mode:  Works with things in instances and without verbosity
+               auto-updates email list by a check interval variable
+                               *no menu capabilities to open emails [yet]
+   debug mode:  Writes to a file in /tmp and is more verbose
+               doesn't run in a loop and will generally let you catch most errors
+                               *Doesn't auto-update
+   menu mode:  Works with a raw_input() menu to let you type in email numbers and they open in your browser
+               also has other features like a refresh which updates email display
+                               *Doesn't auto-update
+
+MORE INFO ON THE WAY
