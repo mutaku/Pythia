@@ -4,7 +4,7 @@
 
  Invoked as:
    python pythia.py    <---This is the normal mode
-   python pythia.py [debug, menu]
+   python pythia.py [debug, menu, config]
 
    normal mode:  Works with things in instances and without verbosity
                auto-updates email list by a check interval variable
@@ -15,5 +15,77 @@
    menu mode:  Works with a raw_input() menu to let you type in email numbers and they open in your browser
                also has other features like a refresh which updates email display
                                *Doesn't auto-update
+   config mode:  Edit your configuration file
 
-MORE INFO ON THE WAY
+
+
+
+REQUIREMENTS
+
+ConfigObj : http://www.voidspace.org.uk/python/configobj.html
+  This is necessary for the configuration file management **required!
+
+
+
+OPTIONAL
+
+Pynotify : http://galago-project.org/files/releases/source/notify-python/
+  If installed, this will send new mail notifications to Notify OSD
+
+
+METHODOLOGY
+
+Pythia uses HTTPS (SSL) to connect to your mail feed and parse out any unread messages. Basic information like
+sender, time, subject, and a snippet of the message are displayed for each unread message.
+
+If you have libnotify and pynotify installed (see above - optional), a notification will be sent to libnotify 
+of the number of unread messages.
+
+The output display of Pythia is optimized for a small terminal window and can easily be run in Screen or the like.
+
+
+FIRST RUN CONFIGURATION
+
+After firing up pythia, if it is the first time the program has run (based on existence of config file), you will 
+lead through a quick configuration proces.
+
+You will be able to setup your username, whether you wish to store your password in the config file (kept at 0600) 
+or prompted on each start, and how often you wish to check your mail.
+
+Note, passwords are stored in plain text. If this is not suitable, you may choose to skip storing during the password
+portion of the configuration setup and you will be prompted for your password on each startup (see below).
+
+This file is stored at ~/.pythia as 0600 and the permissions are revalidated each time the program runs and reads 
+in the config.
+
+
+
+SUBSEQUENT RUNS
+
+Once you have a configuration file in place, you will normally go into a normal check mode which simply checks your
+email based on the check interval and displays any unread messages.
+
+If you chose not to store your password in the config file, you will be prompted on the first check iteration to 
+supply your password which will be used until the program is quit. You will be prompted to do so on each startup
+but not on every check iteration.
+
+If you have pynotify installed, a notification will be sent to your window manager notification system.
+
+Other modes may be invoked as outlined at the top of the README. In short, debug mode is verbose and does not loop
+on a check interval so it is helpful for catching errors if things are not working properly. Menu mode checks and 
+then uses raw_input to wait for commands to check again or you may also type in the number associated with an unread
+email and it will open that particular message in the browser you put in the config file. Lastly, config mode will 
+let you update any config options (note: these may be changed manually at anytime by editing the config file in a 
+text editor).
+
+
+MORE INFORMATION
+
+See website.
+
+
+HELP AND UPDATES
+
+For updates, check out he github page (https://github.com/mutaku/Pythia).
+
+For help, feel free to contact me via email or check out the website.
