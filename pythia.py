@@ -20,6 +20,8 @@
 #   menu mode:  Works with a raw_input() menu to let you type in email numbers and they open in your browser
 #		also has other features like a refresh which updates email display
 #				*Doesn't auto-update
+#   nonotify:   turns off libnotify stuffs
+#
 ###########################################################
 import urllib2, time, os, sys, string, getpass, shutil
 from configobj import ConfigObj
@@ -633,7 +635,7 @@ else:
 				normalcheck()
 				# Throw up the notifcation if there are messages
 				MSG_STATUS = 'close'
-				if pynotify.init("Pythia"):
+				if not "nonotify" in sys.argv[1:] and pynotify.init("Pythia"):
 					if int(count) == 0:
 						pass
 					else:
