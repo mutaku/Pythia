@@ -4,7 +4,7 @@
 
  Invoked as:
    python pythia.py    <---This is the normal mode
-   python pythia.py [debug, menu, config]
+   python pythia.py [debug, menu, config, nonotify]
 
    normal mode:  Works with things in instances and without verbosity
                auto-updates email list by a check interval variable
@@ -17,6 +17,8 @@
                                *Doesn't auto-update
    config mode:  Edit your configuration file
 
+   nonotify mode: Turns off libnotify-based nofitications
+			This is critical for running in screen/tmux/etc sessions (e.g. over SSH)
 
 
 
@@ -31,6 +33,7 @@ OPTIONAL
 
 Pynotify : http://galago-project.org/files/releases/source/notify-python/
   If installed, this will send new mail notifications to Notify OSD
+	* Turn off with 'nonotify' to be able to run without a current X session (e.g. screen/tmux/SSH/etc)
 
 
 METHODOLOGY
